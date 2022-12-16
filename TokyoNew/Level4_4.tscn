@@ -1,0 +1,216 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://World/tilesets/CliffTileMap.tres" type="TileSet" id=1]
+[ext_resource path="res://Camera/CameraPlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TokyoNew/Level4_4.cs" type="Script" id=4]
+[ext_resource path="res://World/GrassBackground.png" type="Texture" id=5]
+[ext_resource path="res://Music and Sounds/X2Download.app - 16-Bit Fantasy RPG OST - Nocturne (Night_Camping Music) (128 kbps).mp3" type="AudioStream" id=6]
+[ext_resource path="res://NPC/Worker.tscn" type="PackedScene" id=7]
+[ext_resource path="res://TextBox/TextBox.tres" type="Theme" id=8]
+[ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=9]
+[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Gradient" id=59]
+offsets = PoolRealArray( 0, 0.00657895, 0.0131579, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.154167, 0.13674, 0.0683756, 1, 0.09375, 0.075079, 0.00183105, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=57]
+gradient = SubResource( 59 )
+
+[sub_resource type="Environment" id=60]
+background_mode = 4
+auto_exposure_scale = 0.1
+glow_enabled = true
+glow_intensity = 1.8
+glow_strength = 1.3
+glow_bloom = 0.01
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 2.16
+adjustment_enabled = true
+adjustment_brightness = 0.99
+adjustment_contrast = 1.23
+adjustment_saturation = 0.47
+adjustment_color_correction = SubResource( 57 )
+
+[sub_resource type="RectangleShape2D" id=61]
+extents = Vector2( 39, 215.5 )
+
+[sub_resource type="Animation" id=62]
+resource_name = "CREDITS"
+length = 60.0
+tracks/0/type = "audio"
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 7.0,
+"start_offset": 615.0,
+"stream": ExtResource( 6 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 9 )
+} ],
+"times": PoolRealArray( 2.2, 59.8 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Player/MarginContainer/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 14.3, 20.4, 25.3, 29.8, 34.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "Credits:", "with honors", "some text", "thank you", "made for friendship with japan" ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 2.1, 10.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -67.612, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/Player/MarginContainer/Label:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 14.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasModulate:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.1, 21.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.576471, 0.533333, 1 ), Color( 0.333333, 0.576471, 0.533333, 1 ), Color( 0.698039, 0.545098, 0.0784314, 1 ) ]
+}
+
+[sub_resource type="Animation" id=63]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.333333, 0.576471, 0.533333, 1 ) ]
+}
+
+[node name="Level4_4" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 232, 266 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1457.96, 947.013 )
+
+[node name="CameraPlayer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 142, 126 )
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="TopLeft" parent="CameraPlayer/Node" index="0"]
+position = Vector2( -67, -23 )
+
+[node name="BottomRight" parent="CameraPlayer/Node" index="1"]
+position = Vector2( 846, 278 )
+
+[node name="CliffTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( -196612, 0, 4, -196611, 0, 196609, -196610, 0, 196609, -196609, 0, 196609, -262144, 0, 196609, -262143, 0, 196609, -262142, 0, 196609, -262141, 0, 196609, -262140, 0, 196609, -262139, 0, 196609, -262138, 0, 196609, -262137, 0, 196609, -262136, 0, 196609, -262135, 0, 196609, -262134, 0, 196609, -262133, 0, 196609, -262132, 0, 196609, -262131, 0, 196609, -262130, 0, 196609, -262129, 0, 196609, -262128, 0, 196609, -262127, 0, 196609, -262126, 0, 196609, -262125, 0, 196609, -262124, 0, 196609, -262123, 0, 196609, -262122, 0, 196609, -262121, 0, 196609, -262120, 0, 196609, -262119, 0, 196609, -262118, 0, 196609, -262117, 0, 196609, -262116, 0, 196609, -262115, 0, 7, -131076, 0, 65539, -196579, 0, 65539, -65540, 0, 65539, -131043, 0, 65539, -4, 0, 65539, -65507, 0, 65539, 65532, 0, 65539, 29, 0, 65539, 131068, 0, 65539, 65565, 0, 65539, 196604, 0, 65539, 131101, 0, 65539, 262140, 0, 65539, 196637, 0, 65539, 327676, 0, 65539, 262173, 0, 65539, 393212, 0, 65539, 327709, 0, 65539, 458748, 0, 65539, 393245, 0, 65539, 524284, 0, 65539, 458781, 0, 65539, 589820, 0, 65539, 524317, 0, 65539, 655356, 0, 65539, 589853, 0, 65539, 720892, 0, 65539, 655389, 0, 65539, 786428, 0, 196612, 786429, 0, 196609, 786430, 0, 196609, 786431, 0, 196609, 720896, 0, 196609, 720897, 0, 196609, 720898, 0, 196609, 720899, 0, 196609, 720900, 0, 196609, 720901, 0, 196609, 720902, 0, 196609, 720903, 0, 196609, 720904, 0, 196609, 720905, 0, 196609, 720906, 0, 196609, 720907, 0, 196609, 720908, 0, 196609, 720909, 0, 196609, 720910, 0, 196609, 720911, 0, 196609, 720912, 0, 196609, 720913, 0, 196609, 720914, 0, 196609, 720915, 0, 196609, 720916, 0, 196609, 720917, 0, 196609, 720918, 0, 196609, 720919, 0, 196609, 720920, 0, 196609, 720921, 0, 196609, 720922, 0, 196609, 720923, 0, 196609, 720924, 0, 196609, 720925, 0, 196615 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 142, 126 )
+z_index = 50
+__meta__ = {
+"_edit_group_": true
+}
+speed = 70
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../CameraPlayer")
+
+[node name="MarginContainer" type="MarginContainer" parent="YSort/Player"]
+margin_left = -284.0
+margin_top = -252.0
+margin_right = -102.0
+margin_bottom = 50.0
+
+[node name="Label" type="Label" parent="YSort/Player/MarginContainer"]
+margin_top = 144.0
+margin_right = 182.0
+margin_bottom = 158.0
+theme = ExtResource( 8 )
+text = "with honors"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.698039, 0.545098, 0.0784314, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 60 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="StartPosition" type="Position2D" parent="."]
+position = Vector2( 1, 307 )
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2( 526, 125 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2( 0, 5.5 )
+shape = SubResource( 61 )
+
+[node name="Worker" parent="." instance=ExtResource( 7 )]
+position = Vector2( -35, 29 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Director" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/CREDITS = SubResource( 62 )
+anims/RESET = SubResource( 63 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource( 10 )]
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
+[connection signal="body_entered" from="Trigger" to="CameraPlayer" method="_on_Trigger_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="Director" to="." method="_on_Director_animation_finished"]
+
+[editable path="CameraPlayer"]

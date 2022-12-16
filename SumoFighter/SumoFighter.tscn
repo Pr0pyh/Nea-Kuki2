@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://SumoFighter/Sumo.cs" type="Script" id=2]
+[ext_resource path="res://Effects/HitEffect.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 31, 31 )
+
+[node name="SumoFighter" type="Area2D" groups=["enemies_moving"]]
+scale = Vector2( 0.5, 0.5 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+
+[node name="HitEffect" type="AnimatedSprite" parent="."]
+position = Vector2( -64, -2 )
+frames = SubResource( 5 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -62, 0 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Damage" type="Timer" parent="."]
+one_shot = true
+
+[node name="NoDamage" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Damage" to="." method="_on_Damage_timeout"]
+[connection signal="timeout" from="NoDamage" to="." method="_on_Timer_timeout"]

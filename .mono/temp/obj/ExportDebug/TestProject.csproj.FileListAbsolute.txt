@@ -1,0 +1,9 @@
+G:\GodotGames\TestProject\.mono\temp\bin\ExportDebug\TestProject.dll
+G:\GodotGames\TestProject\.mono\temp\bin\ExportDebug\TestProject.pdb
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.csproj.AssemblyReference.cache
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.GeneratedMSBuildEditorConfig.editorconfig
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.AssemblyInfoInputs.cache
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.AssemblyInfo.cs
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.csproj.CoreCompileInputs.cache
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.dll
+G:\GodotGames\TestProject\.mono\temp\obj\ExportDebug\TestProject.pdb

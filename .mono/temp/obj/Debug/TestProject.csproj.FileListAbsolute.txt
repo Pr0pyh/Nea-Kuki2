@@ -1,0 +1,9 @@
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.csproj.AssemblyReference.cache
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.GeneratedMSBuildEditorConfig.editorconfig
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.AssemblyInfoInputs.cache
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.AssemblyInfo.cs
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.csproj.CoreCompileInputs.cache
+G:\GodotGames\TestProject\.mono\temp\bin\Debug\TestProject.dll
+G:\GodotGames\TestProject\.mono\temp\bin\Debug\TestProject.pdb
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.dll
+G:\GodotGames\TestProject\.mono\temp\obj\Debug\TestProject.pdb

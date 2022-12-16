@@ -1,0 +1,343 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://player2/player2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://enemy/enemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Camera/CameraPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://SumoFighter/SumoFighter.tscn" type="PackedScene" id=4]
+[ext_resource path="res://NPC/SumoNPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Tokyo-Old/Level1_2.cs" type="Script" id=6]
+[ext_resource path="res://Door/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ShadowTilemap.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Music and Sounds/Music.mp3" type="AudioStream" id=9]
+[ext_resource path="res://World/tilesets/CliffTileMap.tres" type="TileSet" id=10]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://World/GrassBackground.png" type="Texture" id=12]
+[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ACT1"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 100, 319 ), Vector2( 100, 319 ), Vector2( 95, 319 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "inAnimationStop"
+}, {
+"args": [  ],
+"method": "inAnimationMove"
+}, {
+"args": [  ],
+"method": "inAnimationStop"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("SumoNPC")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.4, 1, 1.8, 3, 5.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "*scared*" ],
+"method": "insertText"
+}, {
+"args": [ "It can't be that scary" ],
+"method": "insertText"
+}, {
+"args": [ "I will do it..." ],
+"method": "insertText"
+}, {
+"args": [ "I'll climb up..." ],
+"method": "insertText"
+}, {
+"args": [ "...soon" ],
+"method": "insertText"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "ACT2"
+tracks/0/type = "value"
+tracks/0/path = NodePath("SumoNPC:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 37, 314 ), Vector2( -89, 298 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("SumoNPC:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 37, 314 ) ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "Entry"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -17, 74 ), Vector2( 42, 74 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "inAnimationMove"
+}, {
+"args": [  ],
+"method": "inAnimationStop"
+} ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "Exit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 42, 74 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Gradient" id=52]
+offsets = PoolRealArray( 0, 0.0131579, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.09375, 0.075079, 0.00183105, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=53]
+gradient = SubResource( 52 )
+
+[sub_resource type="Environment" id=54]
+background_mode = 4
+adjustment_enabled = true
+adjustment_color_correction = SubResource( 53 )
+
+[node name="Level1_2" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 217, 266 )
+texture = ExtResource( 12 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1457.96, 947.013 )
+
+[node name="CameraPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 103, 281 )
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="TopLeft" parent="CameraPlayer/Node" index="0"]
+position = Vector2( -256, -2 )
+
+[node name="BottomRight" parent="CameraPlayer/Node" index="1"]
+position = Vector2( 672, 467 )
+
+[node name="CliffTilemap" type="TileMap" parent="."]
+tile_set = ExtResource( 10 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 4, 0, 0, 196609, 1, 0, 196609, 2, 0, 196609, 3, 0, 196609, 4, 0, 196609, 5, 0, 196609, 6, 0, 196609, 7, 0, 196609, 8, 0, 196609, 9, 0, 196609, 10, 0, 196609, 11, 0, 196609, 12, 0, 196609, 13, 0, 196609, 14, 0, 196609, 15, 0, 196609, 16, 0, 196609, 17, 0, 196609, 18, 0, 196609, 19, 0, 196609, 20, 0, 7, 131070, 0, 4, 131071, 0, 196615, 65556, 0, 65539, 196606, 0, 65539, 131077, 0, 0, 131078, 0, 2, 131084, 0, 0, 131085, 0, 2, 131092, 0, 65539, 262142, 0, 196612, 262143, 0, 7, 196613, 0, 131072, 196614, 0, 131074, 196617, 0, 0, 196618, 0, 2, 196620, 0, 131072, 196621, 0, 131074, 196623, 0, 0, 196624, 0, 2, 196626, 0, 4, 196627, 0, 196609, 196628, 0, 262151, 327679, 0, 65539, 262146, 0, 4, 262147, 0, 196609, 262148, 0, 196610, 262153, 0, 131072, 262154, 0, 131074, 262159, 0, 131072, 262160, 0, 131074, 262162, 0, 65539, 262164, 0, 65539, 393215, 0, 65539, 327682, 0, 65539, 327686, 0, 0, 327687, 0, 2, 327692, 0, 0, 327693, 0, 2, 327698, 0, 131075, 327700, 0, 65539, 458744, 0, 4, 458745, 0, 196609, 458746, 0, 196609, 458747, 0, 196609, 458748, 0, 196609, 458749, 0, 196609, 458750, 0, 196609, 458751, 0, 262151, 393218, 0, 65539, 393222, 0, 131072, 393223, 0, 131074, 393225, 0, 0, 393226, 0, 2, 393228, 0, 131072, 393229, 0, 131074, 393231, 0, 196608, 393232, 0, 7, 393236, 0, 65539, 524280, 0, 65539, 524287, 0, 196612, 458752, 0, 196609, 458753, 0, 196609, 458754, 0, 196616, 458755, 0, 196609, 458756, 0, 196610, 458761, 0, 131072, 458762, 0, 131074, 458768, 0, 196612, 458769, 0, 196609, 458770, 0, 196609, 458771, 0, 196609, 458772, 0, 262151, 589816, 0, 65539, 589819, 0, 0, 589820, 0, 1, 589821, 0, 2, 524308, 0, 65539, 655352, 0, 65539, 655355, 0, 65536, 655356, 0, 65537, 655357, 0, 65538, 589828, 0, 4, 589829, 0, 196609, 589830, 0, 196609, 589831, 0, 196609, 589832, 0, 196609, 589833, 0, 196609, 589834, 0, 196609, 589835, 0, 196609, 589836, 0, 196609, 589837, 0, 196609, 589838, 0, 196609, 589839, 0, 196609, 589840, 0, 196609, 589841, 0, 196609, 589842, 0, 196609, 589843, 0, 196609, 589844, 0, 262151, 720888, 0, 65539, 720891, 0, 131072, 720892, 0, 131073, 720893, 0, 131074, 655364, 0, 131075, 655380, 0, 65539, 786424, 0, 65539, 720916, 0, 65539, 851960, 0, 196612, 851961, 0, 196609, 851962, 0, 196609, 851963, 0, 196609, 851964, 0, 196609, 851965, 0, 196609, 851966, 0, 196609, 851967, 0, 196609, 786432, 0, 7, 786434, 0, 4, 786435, 0, 196609, 786436, 0, 196609, 786437, 0, 196609, 786438, 0, 196609, 786439, 0, 196609, 786440, 0, 196609, 786441, 0, 196609, 786442, 0, 196609, 786443, 0, 196609, 786444, 0, 196609, 786445, 0, 196609, 786446, 0, 196609, 786447, 0, 196609, 786448, 0, 196609, 786449, 0, 196609, 786450, 0, 196609, 786451, 0, 196609, 786452, 0, 196615, 851968, 0, 65539, 851970, 0, 65539, 917504, 0, 196612, 917505, 0, 196609, 917506, 0, 196615 )
+
+[node name="ShadowTilemap" parent="." instance=ExtResource( 8 )]
+tile_data = PoolIntArray( 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 131101, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131108, 0, 0, 131109, 0, 0, 131110, 0, 0, 131111, 0, 0, 327678, 0, 0, 327679, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524312, 0, 0, 524313, 0, 0, 524314, 0, 0, 524315, 0, 0, 524326, 0, 0, 524327, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 655381, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 786468, 0, 0, 786469, 0, 0, 983026, 0, 0, 983027, 0, 0, 983028, 0, 0, 983029, 0, 0, 983030, 0, 0, 983031, 0, 0, 983032, 0, 0, 983033, 0, 0, 983034, 0, 0, 983035, 0, 0, 983036, 0, 0, 983037, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917528, 0, 0, 917529, 0, 0, 917530, 0, 0, 917531, 0, 0, 917534, 0, 0, 917535, 0, 0, 1114110, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048610, 0, 0, 1048611, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1048615, 0, 0, 1310730, 0, 0, 1310731, 0, 0, 1310732, 0, 0, 1310733, 0, 0, 1310734, 0, 0, 1310735, 0, 0, 1310736, 0, 0, 1310737, 0, 0, 1310738, 0, 0, 1310739, 0, 0, 1310740, 0, 0, 1310741, 0, 0, 1310742, 0, 0, 1310743, 0, 0, 1310744, 0, 0, 1310745, 0, 0, 1310746, 0, 0, 1310747, 0, 0, 1310748, 0, 0, 1310749, 0, 0, 1310750, 0, 0, 1310751, 0, 0, 1310752, 0, 0, 1310753, 0, 0, 1310754, 0, 0, 1310755, 0, 0, 1310756, 0, 0, 1310757, 0, 0, 1310758, 0, 0, 1310759, 0, 0, 1507318, 0, 0, 1507319, 0, 0, 1507320, 0, 0, 1507321, 0, 0, 1507322, 0, 0, 1507323, 0, 0, 1441800, 0, 0, 1441801, 0, 0, 2097162, 0, 0, 2097163, 0, 0, 2097164, 0, 0, 2097165, 0, 0, 2097166, 0, 0, 2097167, 0, 0, 2097168, 0, 0, 2097169, 0, 0, 2097170, 0, 0, 2097171, 0, 0, 2097172, 0, 0, 2097173, 0, 0, 2097174, 0, 0, 2097175, 0, 0, 2097176, 0, 0, 2097177, 0, 0 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 103, 281 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 70
+partner = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../CameraPlayer")
+
+[node name="Player2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 37, 144 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 512, 352 )
+scale = Vector2( 0.25, 0.25 )
+
+[node name="SumoFighter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 176, 80 )
+
+[node name="SumoFighter2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 208, 80 )
+rotation = 3.14159
+
+[node name="SumoFighter3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 400, 192 )
+
+[node name="SumoFighter4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 431, 193 )
+rotation = 3.14159
+
+[node name="SumoFighter5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 209, 191 )
+
+[node name="SumoFighter6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 241, 180 )
+rotation = 3.14159
+
+[node name="SumoFighter7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 497, 112 )
+
+[node name="SumoFighter8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 528, 112 )
+rotation = 3.14159
+
+[node name="SumoFighter9" parent="." instance=ExtResource( 4 )]
+position = Vector2( -137, 296 )
+
+[node name="SumoNPC" parent="." instance=ExtResource( 5 )]
+position = Vector2( 46, 306 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Director" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/ACT1 = SubResource( 1 )
+anims/ACT2 = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="IntroExit" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Entry = SubResource( 55 )
+anims/Exit = SubResource( 56 )
+anims/RESET = SubResource( 57 )
+
+[node name="Door" parent="." instance=ExtResource( 7 )]
+position = Vector2( 608, 351 )
+level = "res://Kyoto-First/LevelTrain.tscn"
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.972549, 0.741176, 0.380392, 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 54 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = -0.434375
+anchor_top = 0.0388889
+anchor_bottom = 0.327778
+margin_left = -133.0
+margin_top = -33.0
+margin_right = 743.0
+margin_bottom = 456.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource( 13 )]
+
+[connection signal="animation_finished" from="Director" to="YSort/Player" method="_on_Director_animation_finished"]
+[connection signal="animation_finished" from="Director" to="SumoNPC" method="_on_Director_animation_finished"]
+[connection signal="animation_started" from="Director" to="YSort/Player" method="_on_Director_animation_started"]
+[connection signal="animation_finished" from="IntroExit" to="YSort/Player" method="_on_IntroExit_animation_finished"]
+[connection signal="animation_finished" from="IntroExit" to="Door" method="_on_IntroExit_animation_finished"]
+[connection signal="animation_started" from="IntroExit" to="YSort/Player" method="_on_IntroExit_animation_started"]
+
+[editable path="CameraPlayer"]
+[editable path="SumoFighter"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://NPC/NPC.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://NPC/NPC.cs" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/Menu Select.wav" type="AudioStream" id=3]
+[ext_resource path="res://World/enter.png" type="Texture" id=4]
+[ext_resource path="res://TextBox/MinimalUI.tres" type="Theme" id=5]
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://Minecraft.ttf"
+
+[sub_resource type="DynamicFont" id=17]
+font_data = SubResource( 8 )
+
+[sub_resource type="Theme" id=10]
+default_font = SubResource( 17 )
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ null, ExtResource( 4 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.5, 31.5 )
+
+[node name="NPC" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 2, 2 )
+frames = ExtResource( 1 )
+frame = 3
+playing = true
+
+[node name="TextBox" type="MarginContainer" parent="."]
+margin_left = -99.0
+margin_top = 15.0
+margin_right = 101.0
+margin_bottom = 61.0
+theme = ExtResource( 5 )
+
+[node name="Panel" type="Panel" parent="TextBox"]
+margin_right = 200.0
+margin_bottom = 46.0
+
+[node name="Label" type="Label" parent="TextBox"]
+margin_top = 15.0
+margin_right = 200.0
+margin_bottom = 31.0
+theme = SubResource( 10 )
+text = "Zdravo, Nea"
+align = 1
+valign = 1
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="TextBox"]
+position = Vector2( 176, 30 )
+scale = Vector2( 0.875, 0.895508 )
+frames = SubResource( 16 )
+frame = 2
+playing = true
+
+[node name="CollisionSpace" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionSpace"]
+position = Vector2( -0.5, -0.5 )
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="body_entered" from="CollisionSpace" to="." method="_on_CollisionSpace_body_entered"]

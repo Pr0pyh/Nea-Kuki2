@@ -1,0 +1,738 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
+[ext_resource path="res://player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Camera/CameraPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://player2/player2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TokyoNew/Level4_3.cs" type="Script" id=5]
+[ext_resource path="res://World/GrassBackground.png" type="Texture" id=6]
+[ext_resource path="res://Music and Sounds/Music.mp3" type="AudioStream" id=7]
+[ext_resource path="res://enemy_moving/enemy_moving.tscn" type="PackedScene" id=8]
+[ext_resource path="res://NPC/KukiNPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Door/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=11]
+
+[sub_resource type="ConvexPolygonShape2D" id=61]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="TileSet" id=58]
+0/name = "CliffTileset.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 352, 160 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 1
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 438, Vector2( 0, 2 ), 54, Vector2( 0, 3 ), 48, Vector2( 1, 0 ), 504, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 63, Vector2( 1, 3 ), 56, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 219, Vector2( 2, 2 ), 27, Vector2( 2, 3 ), 24, Vector2( 3, 0 ), 144, Vector2( 3, 1 ), 146, Vector2( 3, 2 ), 18, Vector2( 3, 3 ), 16, Vector2( 4, 0 ), 176, Vector2( 4, 1 ), 182, Vector2( 4, 2 ), 434, Vector2( 4, 3 ), 50, Vector2( 4, 4 ), 178, Vector2( 5, 0 ), 248, Vector2( 5, 1 ), 255, Vector2( 5, 2 ), 507, Vector2( 5, 3 ), 59, Vector2( 5, 4 ), 251, Vector2( 6, 0 ), 440, Vector2( 6, 1 ), 447, Vector2( 6, 2 ), 510, Vector2( 6, 3 ), 62, Vector2( 6, 4 ), 446, Vector2( 7, 0 ), 152, Vector2( 7, 1 ), 155, Vector2( 7, 2 ), 218, Vector2( 7, 3 ), 26, Vector2( 7, 4 ), 154, Vector2( 8, 0 ), 184, Vector2( 8, 1 ), 191, Vector2( 8, 2 ), 506, Vector2( 8, 3 ), 58, Vector2( 8, 4 ), 186, Vector2( 9, 0 ), 443, Vector2( 9, 1 ), 254, Vector2( 9, 2 ), 442, Vector2( 9, 3 ), 190, Vector2( 10, 2 ), 250, Vector2( 10, 3 ), 187 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 61 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 9, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 9, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 9, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 9, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 10, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 10, 2 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 4 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 61 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="Gradient" id=59]
+offsets = PoolRealArray( 0, 0.00657895, 0.0131579, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.154167, 0.13674, 0.0683756, 1, 0.09375, 0.075079, 0.00183105, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=62]
+gradient = SubResource( 59 )
+
+[sub_resource type="Environment" id=60]
+background_mode = 4
+auto_exposure_scale = 0.1
+glow_enabled = true
+glow_intensity = 1.8
+glow_strength = 1.3
+glow_bloom = 0.01
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+glow_hdr_scale = 2.16
+adjustment_enabled = true
+adjustment_brightness = 0.99
+adjustment_contrast = 1.23
+adjustment_saturation = 0.47
+adjustment_color_correction = SubResource( 62 )
+
+[sub_resource type="Animation" id=67]
+resource_name = "ACT1"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 496, 216 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("YSort/Player")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "inAnimationStop"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("KukiNPC:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 496, 169 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("KukiNPC")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "We found him..." ],
+"method": "insertText"
+}, {
+"args": [ "You did it, Nea..." ],
+"method": "insertText"
+}, {
+"args": [ "We found all Yusei..." ],
+"method": "insertText"
+}, {
+"args": [ "...and Kuki" ],
+"method": "insertText"
+}, {
+"args": [ "I would go with you..." ],
+"method": "insertText"
+}, {
+"args": [ "...but this place makes me weak..." ],
+"method": "insertText"
+}, {
+"args": [ "...everyone are so perfectly..." ],
+"method": "insertText"
+}, {
+"args": [ "...cold" ],
+"method": "insertText"
+}, {
+"args": [ "Thank you..." ],
+"method": "insertText"
+}, {
+"args": [ "...and..." ],
+"method": "insertText"
+}, {
+"args": [ "just be happy..." ],
+"method": "insertText"
+}, {
+"args": [ "Goodbye, Nea." ],
+"method": "insertText"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CameraPlayer:zoom")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ) ]
+}
+
+[sub_resource type="Animation" id=63]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Player:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 31, 46 ), Vector2( 84, 47 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("YSort/Player")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "inAnimationMove"
+}, {
+"args": [  ],
+"method": "inAnimationStop"
+} ]
+}
+
+[sub_resource type="Animation" id=64]
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=65]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 31, 46 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=66]
+extents = Vector2( 33, 16 )
+
+[node name="Level4_3" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 232, 266 )
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1457.96, 947.013 )
+
+[node name="CameraPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 488, 452 )
+zoom = Vector2( 0.8, 0.8 )
+
+[node name="TopLeft" parent="CameraPlayer/Node" index="0"]
+position = Vector2( -30, 3 )
+
+[node name="BottomRight" parent="CameraPlayer/Node" index="1"]
+position = Vector2( 736, 543 )
+
+[node name="CliffTilemap" type="TileMap" parent="."]
+tile_set = SubResource( 58 )
+cell_size = Vector2( 32, 32 )
+format = 1
+tile_data = PoolIntArray( 65535, 0, 4, 0, 0, 196609, 1, 0, 196609, 2, 0, 196609, 3, 0, 8, 4, 0, 196609, 5, 0, 8, 6, 0, 196609, 7, 0, 8, 8, 0, 196609, 9, 0, 8, 10, 0, 196609, 11, 0, 8, 12, 0, 196609, 13, 0, 196609, 14, 0, 8, 15, 0, 196609, 16, 0, 7, 131071, 0, 65539, 65539, 0, 131075, 65541, 0, 131075, 65543, 0, 131075, 65545, 0, 131075, 65547, 0, 131075, 65550, 0, 65539, 65552, 0, 65539, 196607, 0, 65539, 131086, 0, 65539, 131088, 0, 65539, 262143, 0, 262148, 196608, 0, 196609, 196609, 0, 196609, 196610, 0, 196609, 196611, 0, 8, 196612, 0, 196609, 196613, 0, 8, 196614, 0, 196609, 196615, 0, 8, 196616, 0, 196609, 196617, 0, 8, 196618, 0, 196609, 196619, 0, 7, 196622, 0, 65539, 196624, 0, 65539, 327679, 0, 65539, 262147, 0, 131075, 262149, 0, 131075, 262151, 0, 131075, 262153, 0, 131075, 262155, 0, 131075, 262158, 0, 65539, 262160, 0, 65539, 393215, 0, 65539, 327694, 0, 65539, 327696, 0, 65539, 458751, 0, 65539, 393217, 0, 196608, 393218, 0, 196609, 393219, 0, 8, 393220, 0, 196609, 393221, 0, 8, 393222, 0, 196609, 393223, 0, 8, 393224, 0, 196609, 393225, 0, 8, 393226, 0, 196609, 393227, 0, 8, 393228, 0, 196609, 393229, 0, 196609, 393230, 0, 262151, 393232, 0, 65539, 524287, 0, 65539, 458755, 0, 131075, 458757, 0, 131075, 458759, 0, 131075, 458761, 0, 131075, 458763, 0, 131075, 458766, 0, 65539, 458768, 0, 65539, 589823, 0, 65539, 524302, 0, 65539, 524304, 0, 65539, 655359, 0, 262148, 589824, 0, 196609, 589825, 0, 196609, 589826, 0, 196609, 589827, 0, 8, 589828, 0, 196609, 589829, 0, 8, 589830, 0, 196609, 589831, 0, 8, 589832, 0, 196609, 589833, 0, 8, 589834, 0, 196609, 589835, 0, 7, 589838, 0, 65539, 589840, 0, 65539, 720895, 0, 65539, 655363, 0, 131075, 655365, 0, 131075, 655367, 0, 131075, 655369, 0, 131075, 655371, 0, 131075, 655374, 0, 65539, 655376, 0, 65539, 786431, 0, 65539, 720910, 0, 65539, 720912, 0, 65539, 851967, 0, 65539, 786433, 0, 196608, 786434, 0, 196609, 786435, 0, 8, 786436, 0, 196609, 786437, 0, 8, 786438, 0, 196609, 786439, 0, 8, 786440, 0, 196609, 786441, 0, 8, 786442, 0, 196609, 786443, 0, 8, 786444, 0, 196609, 786445, 0, 196609, 786446, 0, 196615, 786448, 0, 65539, 917503, 0, 65539, 851971, 0, 131075, 851973, 0, 131075, 851975, 0, 131075, 851977, 0, 131075, 851979, 0, 131075, 851984, 0, 65539, 983039, 0, 65539, 917520, 0, 65539, 1048575, 0, 196612, 983040, 0, 196609, 983041, 0, 196609, 983042, 0, 196609, 983043, 0, 196609, 983044, 0, 196609, 983045, 0, 196609, 983046, 0, 196609, 983047, 0, 196609, 983048, 0, 196609, 983049, 0, 196609, 983050, 0, 196609, 983051, 0, 196609, 983052, 0, 196609, 983053, 0, 196609, 983054, 0, 196609, 983055, 0, 196609, 983056, 0, 196615 )
+
+[node name="KukiNPC" parent="." instance=ExtResource( 9 )]
+position = Vector2( 496, 169 )
+scale = Vector2( 0.4, 0.4 )
+collision_mask = 2
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 488, 452 )
+__meta__ = {
+"_edit_group_": true
+}
+speed = 70
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
+remote_path = NodePath("../../../CameraPlayer")
+
+[node name="Player2" parent="." instance=ExtResource( 4 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.333333, 0.576471, 0.533333, 1 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 60 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+autoplay = true
+
+[node name="Director" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/ACT1 = SubResource( 67 )
+
+[node name="IntroExit" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Entry = SubResource( 63 )
+anims/Exit = SubResource( 64 )
+anims/RESET = SubResource( 65 )
+
+[node name="enemy_moving" parent="." instance=ExtResource( 8 )]
+position = Vector2( 337, 145 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 272, 144 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 208, 144 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 144, 145 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 337, 236 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 272, 235 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 208, 235 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 144, 236 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 336, 332 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 271, 331 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 207, 331 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 143, 332 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 337, 429 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 272, 428 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving15" parent="." instance=ExtResource( 8 )]
+position = Vector2( 208, 428 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 144, 429 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 336, 43.9999 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 271, 43 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving19" parent="." instance=ExtResource( 8 )]
+position = Vector2( 207, 43 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="enemy_moving20" parent="." instance=ExtResource( 8 )]
+position = Vector2( 143, 44 )
+scale = Vector2( 0.4, 0.4 )
+vertical = true
+
+[node name="Door" parent="." instance=ExtResource( 10 )]
+position = Vector2( 496, 53 )
+level = "res://TokyoNew/Level4_4.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_left = -0.434375
+anchor_top = 0.0388889
+anchor_bottom = 0.327778
+margin_left = -133.0
+margin_top = -33.0
+margin_right = 743.0
+margin_bottom = 456.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2( 526, 125 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2( -31, 259 )
+shape = SubResource( 66 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource( 11 )]
+
+[connection signal="animation_finished" from="Director" to="KukiNPC" method="_on_Director_animation_finished"]
+[connection signal="animation_finished" from="Director" to="YSort/Player" method="_on_Director_animation_finished"]
+[connection signal="animation_started" from="Director" to="YSort/Player" method="_on_Director_animation_started"]
+[connection signal="animation_finished" from="IntroExit" to="YSort/Player" method="_on_IntroExit_animation_finished"]
+[connection signal="animation_finished" from="IntroExit" to="Door" method="_on_IntroExit_animation_finished"]
+[connection signal="animation_started" from="IntroExit" to="YSort/Player" method="_on_IntroExit_animation_started"]
+[connection signal="body_entered" from="Trigger" to="." method="_on_Trigger_body_entered"]
+
+[editable path="CameraPlayer"]
